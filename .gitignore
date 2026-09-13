@@ -1,0 +1,9 @@
+# Office temp/lock files
+~$*
+
+# OS junk
+Thumbs.db
+.DS_Store
+
+# Generated voiceover audio (regenerable, keep out of the repo)
+pitch/voiceover/

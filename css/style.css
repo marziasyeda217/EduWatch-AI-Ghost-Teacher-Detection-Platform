@@ -1,0 +1,293 @@
+/* EduWatch Ultra-Modern 3D Sea-Green & Navy Theme */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+
+:root {
+  --navy-950: #050d1a;
+  --navy-900: #0a192f;
+  --navy-850: #0f2347;
+  --navy-800: #162f5e;
+  --sea-green-600: #059669;
+  --sea-green-500: #10b981;
+  --sea-green-400: #34d399;
+  --sea-green-300: #6ee7b7;
+  --teal-accent: #14b8a6;
+  --mint-glow: rgba(16, 185, 129, 0.25);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+}
+
+/* Mobile layout safety net — no element may push the page wider than the screen */
+img, video, canvas, iframe {
+  max-width: 100%;
+}
+
+.font-urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  line-height: 2.2;
+}
+
+/* Smooth Page Transitions */
+.view-screen {
+  animation: viewEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes viewEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Animated Shimmering Sea-Green Gradient Text */
+.text-sea-gradient {
+  background: linear-gradient(135deg, #10b981 0%, #2dd4bf 40%, #38bdf8 80%, #34d399 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer 5s ease-in-out infinite alternate;
+}
+
+@keyframes textShimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Text Reveal & Transitions */
+.anim-fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+/* 3D Perspective & Hover Cards */
+.card-3d-wrap {
+  perspective: 1400px;
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s ease;
+}
+
+.card-3d:hover {
+  transform: translateY(-8px) rotateX(3deg) rotateY(-3deg);
+  box-shadow: 0 25px 35px -10px rgba(10, 25, 47, 0.18), 0 15px 20px -10px rgba(16, 185, 129, 0.2);
+}
+
+.card-3d-floating {
+  animation: float3d 6s ease-in-out infinite alternate;
+}
+
+@keyframes float3d {
+  0% {
+    transform: translateY(0px) rotate(-0.5deg);
+  }
+  100% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+.card-3d-floating-delayed {
+  animation: float3d-delayed 7s ease-in-out 1s infinite alternate;
+}
+
+@keyframes float3d-delayed {
+  0% {
+    transform: translateY(0px) rotate(0.8deg);
+  }
+  100% {
+    transform: translateY(-12px) rotate(-1deg);
+  }
+}
+
+/* Crisp White & Emerald Glass Panel */
+.sea-glass-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 20px -2px rgba(10, 25, 47, 0.06), 0 2px 4px -1px rgba(10, 25, 47, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #0f172a;
+}
+
+.sea-glass-card:hover {
+  border-color: #10b981;
+  box-shadow: 0 16px 32px -6px rgba(1, 65, 28, 0.12), 0 8px 16px -4px rgba(10, 25, 47, 0.05);
+}
+
+/* Slider Zoom Animation (Ken Burns) */
+.slider-img {
+  transition: transform 6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.65s ease-in-out;
+  transform: scale(1);
+}
+
+.slider-img.active {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+.slider-img.inactive {
+  opacity: 0;
+  transform: scale(1);
+}
+
+/* Caption Text Transition */
+#hero-slider-title, #hero-slider-urdu, #hero-slider-badge, #floating-badge-status {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* FAQ Accordion Transitions */
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.faq-content.open {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.faq-icon {
+  transition: transform 0.3s ease;
+}
+
+.faq-icon.rotate {
+  transform: rotate(180deg);
+}
+
+/* Face Scanner UI Viewfinder */
+.scanner-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: #0a192f;
+}
+
+.scanner-beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #10b981, #2dd4bf, transparent);
+  box-shadow: 0 0 15px #10b981;
+  animation: scan 2.2s ease-in-out infinite alternate;
+  z-index: 10;
+}
+
+@keyframes scan {
+  0% { top: 6%; }
+  100% { top: 92%; }
+}
+
+.face-target-box {
+  border: 2px dashed rgba(16, 185, 129, 0.75);
+  border-radius: 1.25rem;
+  animation: pulse-border 2s infinite ease-in-out;
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(16, 185, 129, 0.4); }
+  50% { border-color: rgba(45, 212, 191, 1); box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); }
+}
+
+/* Photo Gallery Cards */
+.photo-card-zoom {
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.photo-card-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.photo-card-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* Map Light Styles */
+.leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 0.875rem !important;
+  box-shadow: 0 15px 30px -5px rgba(15, 23, 42, 0.15) !important;
+}
+
+.leaflet-popup-tip {
+  background: #ffffff !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #01411c;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #064e3b;
+}
+
+/* ========================================================================= */
+/* PAKISTAN FEDERAL GOVERNMENT CARDS & ACTION TILES (Commerce.gov Style)    */
+/* ========================================================================= */
+.fed-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 16px -2px rgba(10, 25, 47, 0.06);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #0f172a;
+}
+
+.fed-card:hover {
+  border-color: #01411c;
+  box-shadow: 0 16px 32px -6px rgba(1, 65, 28, 0.14), 0 8px 12px -4px rgba(10, 25, 47, 0.05);
+}
+
+.action-tile {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid #01411c;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 16px -2px rgba(10, 25, 47, 0.06);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #0f172a;
+}
+
+.action-tile:hover {
+  transform: translateY(-4px);
+  border-color: #10b981;
+  box-shadow: 0 20px 35px -8px rgba(1, 65, 28, 0.16), 0 8px 16px -6px rgba(10, 25, 47, 0.06);
+}
